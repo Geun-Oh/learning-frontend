@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="battery-log"></div>
+    <div class="el"></div>
+    <input value="0"></div>
+</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script>
+          anime({
+      targets: '.el',
+      translateX: 250
+    });
+
+    let battery = {
+        charged: "0%",
+        cycles: 120
+    }
+
+    anime({
+        targets: battery,
+        charged: "100%",
+        cycles: 130,
+        round: 1,
+        easing: "linear",
+        update: () => {
+            document.querySelector(".battery-log").innerHTML = JSON.stringify(battery);
+        }
+    })
+
+    anime({
+        targets: ".el",
+        translateX: 250,
+        scale: 2,
+        rotate: "-1turn"
+    })
+    
+    anime({
+        targets: "input",
+        value: [0, 999],
+        round: 1,
+        easing: "easeInOutExpo"
+    })
+    </script>
+</html>
