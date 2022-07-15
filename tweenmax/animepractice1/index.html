@@ -10,15 +10,15 @@
         <div class="hour bar"></div>
         <div class="min bar"></div>
         <div class="sec bar"></div>
-        <div class="line normal firstquater up">3</div>
-        <div class="line half up">6</div>
-        <div class="line normal thirdquater up">9</div>
-        <div class="line normal firstquater down">3</div>
-        <div class="line half down">6</div>
-        <div class="line normal thirdquater down">9</div>
-        <div class="hourhand line">H</div>
-        <div class="minhand line">M</div>
-        <div class="sechand line">S</div>
+        <div class="line normal firstquater up"></div>
+        <div class="line half up"></div>
+        <div class="line normal thirdquater up"></div>
+        <div class="line normal firstquater down"></div>
+        <div class="line half down"></div>
+        <div class="line normal thirdquater down"></div>
+        <div class="hourhand line"></div>
+        <div class="minhand line"></div>
+        <div class="sechand line"></div>
     </div>
 </body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
@@ -26,16 +26,25 @@
         let hourhand = document.querySelector(".hourhand");
         let minhand = document.querySelector(".minhand");
         let sechand = document.querySelector(".sechand");
-        let hours = new Date().getHours();
-        let minutes = new Date().getMinutes();
-        let seconds = new Date().getSeconds();
-        let hour = 100 / 24 * hours;
-        let min = 100 / 60 * minutes;
-        let sec = 100 / 60 * seconds;
-        console.log(hours, hour);
 
-        hourhand.style.left = `${hour}%`;
-        minhand.style.left = `${min}%`;
-        sechand.style.left = `${sec}%`;
+        class GetDate {
+            constructor(time) {
+                this.hours = time.getHours();
+                this.minutes = time.getMinutes();
+                this.seconds = time.getSeconds();
+            }
+            updateDate() {
+                hourhand.innerText = `${this.hours}`;
+                minhand.innerText = `${this.minutes}`;
+                sechand.innerText = `${this.seconds}`;
+                hourhand.style.left = `${100 / 24 * this.hours}%`;
+                minhand.style.left = `${100 / 60 * this.minutes}%`;
+                sechand.style.left = `${100 / 60 * this.seconds}%`;
+            }
+        }
+        setInterval(() => {
+            let date = new GetDate(new Date());
+            date.updateDate();
+        }, 1000);
     </script>
 </html>
