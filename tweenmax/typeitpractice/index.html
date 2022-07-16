@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
+        <title>TypeIt</title>
+        <style>
+            html, body {
+                height: 5000px;
+            }
+        </style>
+    </head>
+<body>
+    <p class="simpleUsage"></p>
+    <p class="callback"></p>
+    <fieldset>
+        <label for="formElement">Full Name</label>
+        <input type="text" class="formElement" />
+    </fieldset>
+    <p class="scroll">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem distinctio veniam repudiandae doloremque ducimus animi officiis dicta expedita, quaerat placeat rerum libero minima suscipit? Explicabo totam sed expedita earum eum!</p>
+</body>
+<script src="https://unpkg.com/typeit@8.6.6/dist/index.umd.js"></script>
+<script>
+    new TypeIt(".simpleUsage", {
+        strings: ["Look, it's rainbow text!"],
+        speed: 50,
+        waitUntilVisible: true,
+        // afterStep: (instance) => {
+        //     instance.getElement().style.color = getRandomColor();
+        // },
+    }).go();
+
+    const instance = new TypeIt(".callback", {
+        strings: ["Look, it's rainbow text!"],
+        afterStep: function (instance) {
+            instance.getElement().style.color = getRandomColor();
+        },
+    }).go();
+
+    new TypeIt(".formElement", {
+        strings: "Alex MacArthur",
+        waitUntilVisible: true,
+    }).go();
+
+    ScrollOut({
+    targets: ".scroll",
+  onShown: function(el) {
+    // use the web animation API
+    el.animate([{ opacity: 0 }, { opacity: 1 }], 1000);
+  },
+  onHidden: function(el) {
+    // hide the element initially
+    el.style.opacity = 0;
+  }
+});
+</script>
+</html>
