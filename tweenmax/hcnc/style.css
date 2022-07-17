@@ -6,6 +6,7 @@ html, body {
 }
 main {
     transition-duration: 1s;
+    position: relative;
 }
 section {
     width: 100vw;
@@ -53,7 +54,6 @@ section {
 }
 .second-section {
     position: relative;
-    transform: scale(0.8);
 }
 .div1 {
     font-size: 80px;
@@ -98,7 +98,6 @@ section {
 
 .third-section {
     position: relative;
-    transform: scale(0.8);
 }
 
 .div3 {
@@ -152,13 +151,31 @@ section {
 }
 
 .fourth-section {
+    border: 5px solid black;
+    border-radius: 30px;
     position: relative;
     transform: scale(0.8);
 }
 
+.sub-section {
+    font-size: 40px;
+    font-weight: 600;
+    position: absolute;
+    margin: 0;
+}
+
+.create {
+    bottom: 70vh;
+    left: 20vw;
+}
+
+.innovate {
+    top: 70vh;
+    right: 20vw;
+}
+
 .fourth-section article {
     position: absolute;
-    background:rgba(211, 211, 211, 0.7);
     width: 30vw;
     height: 40vh;
     display: flex;
@@ -179,16 +196,23 @@ section {
 
 .Will img {
     position: absolute;
+    transition: 0.5s;
+    z-index: 2;
+}
+
+.Will img:hover {
+    opacity: 0;
 }
 
 .will-detail-title {
     margin: 0;
     font-size: 60px;
+    font-weight: 500;
     color: #FF004D;
 }
 
 .will-detail {
-    font-size: 24px;
+    font-size: 32px;
 }
 
 .Society {
@@ -200,18 +224,109 @@ section {
 
 .Society img {
     position: absolute;
+    transition: 0.5s;
+    z-index: 2;
+}
+
+.Society img:hover {
+    opacity: 0;
 }
 
 .society-detail-title {
     margin: 0;
     font-size: 60px;
+    font-weight: 500;
     color: #EB8D00;
 }
 
 .society-detail {
-    font-size: 24px;
+    position: relative;
+    font-size: 32px;
 }
 
+.fifth-section {
+    position: relative;
+}
+
+.standard-line {
+    position: absolute;
+    width: 0;
+    height: 4px;
+    background: black;
+    top: calc(70vh + 4px);
+    right: 0;
+}
+
+.circle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    opacity: 0;
+    border-radius: 6px;
+    background: black;
+}
+
+.first {
+    top: 70vh;
+    right: 80vw;
+}
+
+.second {
+    top: 70vh;
+    right: 50vw;
+}
+
+.third {
+    top: 70vh;
+    right: 20vw;
+}
+
+.center-line {
+    position: absolute;
+    width: 2px;
+    height: 0;
+    background: black;
+    bottom: calc(30vh + 20px);
+    right: calc(50vw + 4.5px);
+}
+
+.fifth-section-title {
+    font-size: 80px;
+    font-weight: 500;
+    text-align: right;
+    position: absolute;
+    opacity: 0;
+    top: calc(20vh - 50px);
+    right: calc(50vw + 20px);
+}
+
+.fifth-section-detail {
+    position: absolute;
+    top: 20vh;
+    left: calc(50vw + 20px);
+    font-size: 32px;
+    opacity: 0;
+}
+
+.sixth-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: url("./images/lastImg.jpg");
+    background-size: cover;
+}
+
+.join-us-now {
+    padding-left: 20px;
+    left: 0 auto;
+    font-size: 100px;
+    font-family: 'Rock Salt', cursive;
+    color: white;
+}
+
+.footer p {
+    color: lightgray;
+}
 
 [data-scroll] {
     transition: 1s;
@@ -222,4 +337,14 @@ section {
 }
 [data-scroll="out"] {
     transform: scale(0.8);
+}
+
+.fourth-section[data-scroll] {
+    transform: scale(0.6);
+}
+.fourth-section[data-scroll="in"] {
+    transform: scale(0.8);
+}
+.fourth-section[data-scroll="out"] {
+    transform: scale(0.6);
 }

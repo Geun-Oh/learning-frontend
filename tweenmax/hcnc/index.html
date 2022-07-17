@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
         <title>HCNC</title>
         <link rel="stylesheet" href="./style.css">
     </head>
@@ -15,36 +16,58 @@
             <p class="version">1st version</p>
             <svg class="doubledown-arrow" fill="rgba(222, 222, 222, 0.44)" xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M24 38 12 26l2.1-2.1 9.9 9.9 9.9-9.9L36 26Zm0-12.65-12-12 2.1-2.1 9.9 9.9 9.9-9.9 2.1 2.1Z"/></svg>
         </section>
-        <section class="second-section" data-scroll>
-            <div class="second-section-img">
+        <section class="second-section">
+            <div class="second-section-img" data-scroll>
                 <p class="innerText1">I'm with<br />HCNC!</p>
                 <div class="feature">
                     <p>#HCNC   #JOIN US</p>
                 </div>
             </div>
-            <div class="div2">Here to create<br />A New Culture.</div>
+            <div class="div2" data-scroll>Here to create<br />A New Culture.</div>
         </section>
-        <section class="third-section" data-scroll>
-            <div class="div1">Now<br />Create.</div>
+        <section class="third-section">
+            <div class="div1" data-scroll>Now<br />Create.</div>
             <div class="div3">
-                <div class="division way">Way</div>
-                <div class="division life">Life</div>
-                <div class="division art">Art</div>
+                <div class="division way" data-scroll>Way</div>
+                <div class="division life" data-scroll>Life</div>
+                <div class="division art" data-scroll>Art</div>
             </div>
         </section>
         <section class="fourth-section" data-scroll>
-                <p class="subsection create">Create A Culture</p>
-                <article class="Will">
+                <p class="sub-section create" data-scroll>Create A Culture</p>
+                <article class="Will" data-scroll>
                     <img src="./images/section4article1.jpg" alt="will">
                     <p class="will-detail-title">WILL</p>
                     <p class="will-detail">Make this world where you and<br />future generations will live a<br />better life.</p>
                 </article>
-                <article class="Society">
+                <article class="Society" data-scroll>
                     <img src="./images/section4article2.jpg" alt="society">
                     <p class="society-detail-title">Society</p>
                     <p class="society-detail">Is not something that someone<br />makes, but something that we<br />make and lead.</p>
                 </article>
-                <p class="subsection innovate">Innovate Society</p>
+                <p class="sub-section innovate" data-scroll>Innovate Society</p>
+        </section>
+        <section class="fifth-section">
+            <div class="line-wrapper">
+                <div class="standard-line"></div>
+                <div class="circle first"></div>
+                <div class="circle second"></div>
+                <div class="circle third"></div>
+            </div>
+            <div class="center-line"></div>
+            <p class="fifth-section-title">What are<br />we doing<br />now?</p>
+            <div class="fifth-section-detail">
+                <p class="fifth-section-detail-1">Ideas & Business structure<br />materializing</p>
+                <p class="fifth-section-detail-2">Discussing and finding<br />vulnerabilities.</p>
+                <p class="fifth-section-detail-3">Building new knowledge<br />and perspective</p>
+            </div>
+        </section>
+        <section class="sixth-section">
+            <p class="join-us-now">JOIN US NOW!</p>
+            <div class="footer">
+                <p class="maker">Made by Geun-Oh.HCNC<br />The Resonance</p>
+                <p class="photo">Photo by unsplash</p>
+            </div>
         </section>
     </main>
 </body>
@@ -70,6 +93,19 @@
         speed: 50, 
         waitUntilVisible: true,
     }).go();
+
+    const display = new TimelineMax();
+    display.to(".standard-line", 1, { width: "80vw" })
+    .to(".circle", 0.5, { opacity: 1 })
+    .to(".center-line", 0.5, { height: "50vh" })
+    .to([".fifth-section-title", ".fifth-section-detail"], 1, { opacity: 1 })
+    .paused(true);
+
+    window.addEventListener("scroll", () => {
+        const ratio = 1 - document.querySelector(".fifth-section").getBoundingClientRect().top / document.querySelector(".fifth-section").getBoundingClientRect().height;
+        console.log(ratio)
+        if(ratio > 0.3) display.resume();
+    })
     // window.addEventListener("scroll", (e) => {
     //     const ratio = 1 - document.querySelector(".second-section").getBoundingClientRect().top / document.querySelector(".second-section").getBoundingClientRect().height;
     //     document.querySelector(".second-section").style.transform = `scale(${0.2 * ratio + 0.8})`;
