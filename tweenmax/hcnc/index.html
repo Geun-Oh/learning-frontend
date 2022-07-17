@@ -22,8 +22,29 @@
                     <p>#HCNC   #JOIN US</p>
                 </div>
             </div>
-            <div class="div1">Now<br />Create</div>
             <div class="div2">Here to create<br />A New Culture.</div>
+        </section>
+        <section class="third-section" data-scroll>
+            <div class="div1">Now<br />Create.</div>
+            <div class="div3">
+                <div class="division way">Way</div>
+                <div class="division life">Life</div>
+                <div class="division art">Art</div>
+            </div>
+        </section>
+        <section class="fourth-section" data-scroll>
+                <p class="subsection create">Create A Culture</p>
+                <article class="Will">
+                    <img src="./images/section4article1.jpg" alt="will">
+                    <p class="will-detail-title">WILL</p>
+                    <p class="will-detail">Make this world where you and<br />future generations will live a<br />better life.</p>
+                </article>
+                <article class="Society">
+                    <img src="./images/section4article2.jpg" alt="society">
+                    <p class="society-detail-title">Society</p>
+                    <p class="society-detail">Is not something that someone<br />makes, but something that we<br />make and lead.</p>
+                </article>
+                <p class="subsection innovate">Innovate Society</p>
         </section>
     </main>
 </body>
@@ -31,9 +52,6 @@
 <script src="https://unpkg.com/typeit@8.6.6/dist/index.umd.js"></script>
 <script>
     ScrollOut();
-    // window.addEventListener("click", () => {
-    //     document.querySelector("main").style.transform = "translateY(-100vh)";
-    // });
     const callback = anime({
         targets: ".second-section-img",
         background: 'url("./images/1stPageBackgroundImg.jpg")',
@@ -42,6 +60,19 @@
         duration: 1000,
         autoplay: false,
     })
-    document.querySelector(".second-section").addEventListener("click", callback.play);
+
+    new TypeIt(".div2", {
+        speed: 50, 
+        waitUntilVisible: true,
+    }).go();
+
+    new TypeIt(".div1", {
+        speed: 50, 
+        waitUntilVisible: true,
+    }).go();
+    // window.addEventListener("scroll", (e) => {
+    //     const ratio = 1 - document.querySelector(".second-section").getBoundingClientRect().top / document.querySelector(".second-section").getBoundingClientRect().height;
+    //     document.querySelector(".second-section").style.transform = `scale(${0.2 * ratio + 0.8})`;
+    // });
 </script>
 </html>
