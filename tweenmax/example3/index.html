@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <title>Example3</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <main>
+        <div class="dot"></div>
+        <svg width="1440" height="768" viewBox="0 0 1440 768" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line class="default-line" y1="384" x2="1440" y2="384" stroke="#FEEDB3" stroke-width="4"/>
+            <line class="main-line-1" x1="592" y1="2.99999" x2="592" y2="2.99999" stroke="#FEEDB3" stroke-width="4"/>
+            <line class="main-line-2" x1="211.586" y1="384.102" x2="211.586" y2="384.102" stroke="#FEEDB3" stroke-width="4"/>
+            <line class="main-line-3" x1="944.586" y1="621.423" x2="944.586" y2="621.423" stroke="#FEEDB3" stroke-width="4"/>
+            <line class="main-line-4" x1="457.414" y1="384.586" x2="457.414" y2="384.586" stroke="#FEEDB3" stroke-width="4"/>
+            <line class="main-line-5" x1="694" y1="621" x2="694" y2="621" stroke="#FEEDB3" stroke-width="4"/>
+            <line class="main-line-6" x1="838" y1="766" x2="838" y2="766" stroke="#FEEDB3" stroke-width="4"/>
+            <line class="main-line-7" x1="1070" y1="495" x2="1070" y2="495" stroke="#FEEDB3" stroke-width="4"/>
+        </svg>
+    </main>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script src="https://unpkg.com/typeit@8.6.6/dist/index.umd.js"></script>
+<script>
+    const upStick = anime.timeline({
+        duration: 1000,
+        easing: "linear",
+    });
+    const downStick = anime.timeline({
+        duration: 1000,
+        easing: "linear",
+    });
+
+    upStick.add({
+        targets: ".main-line-2",
+        x2: "593.423", 
+        y2: "2.26437",
+    })
+    .add({
+        targets: ".main-line-1",
+        x2: "2032",
+    })
+
+    downStick.add({
+        targets: ".main-line-4",
+        x2: "839.252",
+        y2: "766.423",
+    })
+    .add({
+        targets: ".main-line-5",
+        x2: "1774",
+        y2: "621",
+    })
+    .add({
+        targets: ".main-line-6",
+        x2: "1558",
+        y2: "766",
+    }, "-=1000")
+    .add({
+        targets: ".main-line-3",
+        x2: "1071.86",
+        y2: "494.144",
+    }, "-=800")
+    .add({
+        targets: ".main-line-7",
+        x2: "1790",
+        y2: "495",
+    })
+
+    // stickLanding.add({
+    //     targets: ".main-line-2",
+    //     x2: "593.423", 
+    //     y2: "2.26437",
+    //     easing: "linear",
+    // })
+    // .add({
+    //     targets: ".main-line-1",
+    //     x2: "2032",
+    //     easing: "linear",
+    // })
+    // .add({
+    //     targets: ".main-line-3",
+    //     x2: "1071.86",
+    //     y2: "494.144",
+    //     easing: "linear",
+    // })
+    // .add({
+    //     targets: ".main-line-4",
+    //     x2: "839.252",
+    //     y2: "766.423",
+    //     easing: "linear",
+    // })
+    // .add({
+    //     targets: ".main-line-5",
+    //     x2: "1774",
+    //     y2: "621",
+    //     easing: "linear",
+    // })
+    // .add({
+    //     targets: ".main-line-6",
+    //     x2: "1558",
+    //     y2: "766",
+    //     easing: "linear",
+    // })
+    // .add({
+    //     targets: ".main-line-7",
+    //     x2: "1790",
+    //     y2: "495",
+    //     easing: "linear",
+    // })
+</script>
+</html>
